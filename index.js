@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use("api/", productsRouter);
+app.use("/api", productsRouter);
 
 app.use(function (req, res, next) {
     res.status(404)
