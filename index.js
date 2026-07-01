@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import 'dotenv/config';
 import productsRouter from './src/routes/products.routes.js';
+import loginRoutes from "./src/routes/auth.routes.js"
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use((req, res, next) => {
     console.log(`Datos recibidos: ${req.method} ${req.url}`);
     next();
 })
+
+app.use(loginRoutes);
 
 app.use("/api", productsRouter);
 
